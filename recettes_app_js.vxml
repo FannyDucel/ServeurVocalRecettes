@@ -5,6 +5,7 @@
 <var name="recette_choisie_e2"/>
 <var name="ingredient_choisi"/>
 <var name="recette_choisie"/>
+  <var name="nb" expr="0"/>
 <form id="start">
 <block>
 <prompt>
@@ -77,19 +78,20 @@
 
 
  <form id="commencer_recette">
-  <var name="nb" expr="0"/>
   <block>
     <var name="liste_instructions" expr="getInstructionsByRecipe(recette_choisie)"/>
     <prompt> <value expr="liste_instructions[nb]"/> </prompt>
     <assign name="nb" expr="nb + 1"/>
-    <goto next="ok"/>
+    <goto next="#etapeok"/>
     <!--
   <foreach item="etape" array="liste_instructions.slice(nb)"> #slice pour reprendre la lecture à partir de là où on en était)
     <assign name="nb" expr="nb + 1"/>
   <prompt>, <value expr="etape"/> <goto next="ok"/>  </prompt> 
 </foreach>-->
   </block>
+</form>
 
+<form name="etapeok">
 <field name="ok">
     <prompt> C'est bon ? </prompt>
     <grammar src="ouinon.vxml"/>
