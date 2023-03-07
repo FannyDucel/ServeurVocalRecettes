@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml version = "2.1" xml:lang="fr-fr" >  
+<script src="recettes.js"/>
+<var name="recette_choisie_e1"/>
+<var name="recette_choisie_e2"/>
+<var name="ingredient_choisi"/>
+<var name="recette_choisie"/>
+<form id="start">
+<block>
+<prompt>
+      V4 Bonjour, bienvenue sur notre serveur vocal de recettes de cuisine végétariennes. Vous avez faim mais pas d'inspiration ? Vous êtes au bon endroit.
+</prompt>
+<goto next="#recherche_recettes"/>
+</block>
+</form>
+
+  <form id="recherche_recettes">
+    <field name="ingredient_choisii">
+    
+     <prompt>
+
+     Quel ingrédient voulez-vous utiliser dans votre recette ? 
+    </prompt>
+    
+    <grammar src="recettes_grammaire_js.vxml"/>
+      <noinput> <reprompt/></noinput>
+  <nomatch> <prompt>Désolé, je n'ai pas compris.</prompt> <reprompt/> </nomatch>
+    
+    <filled>
+      <!--<assign name="n" expr="getRandomInt(0,getRecipesByIngredient($ingredient_choisi).length)"/>
+      <assign name="recette_choisie" expr="getRecipesByIngredient('pâtes')[0]"/>-->
+      <assign name="recette_choisie_e1" expr="lastresult$.interpretation.étape1"/>
+      <assign name="recette_choisie_e2" expr="lastresult$.interpretation.étape2"/>
+      <assign name="ingredient_choisi" expr="lastresult$.interpretation.self"/>
+      <prompt> J'ai entendu <value expr="ingredient_choisi"/> </prompt>
+
+    </filled>
+  </field>
+  <block>
+    <!--ATTENTION, tous les ingrédients doivent avoir 3 recettes associées -->
+      <assign name="recette_choisie" expr="getRecipesByIngredient(ingredient_choisi)[getRandomInt(0,2)]"/>
+      <!--<var name="recette_choisie" expr="getRecipesByIngredient(ingredient_choisi)[getRandomInt(0,2)]"/>-->
+
+     <prompt>
+        D'accord ! Je vous propose de cuisiner une <value expr="recette_choisie"/>. Vous aurez besoin de </prompt> 
+        <var name="liste_ingredients" expr="getIngredientsByRecipe(recette_choisie)"/>
+        <var name="temps_recette" expr="getTimeByRecipe(recette_choisie)"/>
+      <foreach item="ingr" array="liste_ingredients"> 
+
+        <prompt>, <value expr="ingr"/> </prompt> </foreach>
+
+       Cela prendra <value expr="temps_recette"/>. 
+    <goto next="#valider_recette"/>
+    <!--<goto next="#commencer_recette"/>-->
+</block>
+   </form>
+
+   <form id="valider_recette">
+    <field name="confirmation">
+            <prompt> Cela vous convient ? </prompt>
+
+            <grammar src="ouinon.vxml"/>
+                  <noinput> <reprompt/></noinput>
+  <nomatch> <prompt>Désolé, je n'ai pas compris.</prompt> <reprompt/> </nomatch>
+
+        <filled>
+
+    <if cond="confirmation == 'oui'">
+          C'est parti ! N'hésitez pas à m'interrompre ou me demander de répéter chaque instruction.
+      <goto next="#commencer_recette"/>
+    <else/>
+        <goto next="#recherche_recettes"/>
+    </if>
+  </filled>
+</field>
+</form>
+
+
+ <form id="commencer_recette">
+  <var name="nb" expr="0"/>
+  <block>
+    <var name="liste_instructions" expr="getInstructionsByRecipe(recette_choisie)"/>
+    <prompt> <value expr="liste_instructions[nb]"/> </prompt>
+    <assign name="nb" expr="nb + 1"/>
+    <goto next="ok"/>
+    <!--
+  <foreach item="etape" array="liste_instructions.slice(nb)"> #slice pour reprendre la lecture à partir de là où on en était)
+    <assign name="nb" expr="nb + 1"/>
+  <prompt>, <value expr="etape"/> <goto next="ok"/>  </prompt> 
+</foreach>-->
+  </block>
+
+<field name="ok">
+    <prompt> C'est bon ? </prompt>
+    <grammar src="ouinon.vxml"/>
+    <noinput> <reprompt/></noinput>
+    <nomatch> <prompt>Désolé, je n'ai pas compris.</prompt> <reprompt/> </nomatch>
+    <filled>
+      <if cond="ok == 'oui'">
+        <prompt> Très bien. Ensuite, <goto next="commencer_recette"/>. </prompt>
+      <elseif cond="ok == 'attends' || ok == 'pause'"/>
+        <prompt> D'accord, j'attends 5 secondes. 
+        <break time="5000ms"/> </prompt>
+        <goto next="commencer_recette"/>
+        <!--<goto next="#etape_suivante"/>-->
+      <elseif cond="ok == 'répétez'"/>
+        <!--<reprompt/>-->
+        <prompt> Je répète : <value expr="getInstructionsByRecipe(recette_choisie)[nb]"/>. </prompt>
+        <goto next="#commencer_recette"/>
+      </if>
+    </filled>
+  </field>
+</form>
+
+     
+    
+ <form id="fin">
+  <block>
+    À bientôt !
+  </block>
+</form>
+  
+
+</vxml>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<vxml version = "2.1"> 
+
+<var name="currNo" expr="startNo"/>
+<var name="userResponse"/>
+
+<form id="getUserInput"> 
+
+   <field name="F_1" cond="currNo <= endNo"> 
+     <grammar srcexpr="currNo + '.xml'" type="application/grammar-xml"/>
+     <prompt>
+       <audio expr="currNo + '.wav'"/>
+     </prompt>
+   </field>
+   <filled>
+      <assign name="userReponse" expr="F_1"/>
+      <goto next="#handleResponse"/>
+    </filled>
+</form>
+
+<form id="handleResponse">
+   <block>
+      <!-- Send each result to PHP app as you get them -->
+      <!-- This way you will not loose any result on error or hangup -->
+      <!-- Assumes you have some user ID to associate the result with -->
+      <submit next="handleUserResponse.php" namelist="userId userResponse"/>
+      <!-- Increment counter -->
+      <assign name="currNo" expr="currNo + 1"/>
+      <!-- If the counter is greater than endNo then we are done -->
+      <if cond="currNo > endNo>
+         <submit next="endApplication.vxml"/>
+      <!-- Otherwise we loop back to get another response -->
+      <else/>
+          <goto next="#getUserInput"/>
+      </if>
+    </block>
+</form>
+</vxml>

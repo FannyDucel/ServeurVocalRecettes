@@ -1,0 +1,14 @@
+<grammar xml:lang="fr-fr" root="recettes">
+<rule id="recettes" scope="public">
+<one-of>
+<item>
+Soupe de lentilles
+<tag> out.titre="Soupe de lentilles"; out.ingrédient1="lentilles"; out.ingrédient2="oignon"; out.ingrédient3="eau"; out.autresingr="patate sel"; out.temps="45 minutes"; out.étape1="Éplucher les oignons"; out.étape2="Faire cuire les lentilles.";</tag>
+</item>
+<item>
+Tarte aux poireaux
+<tag> out.titre="Tarte aux poireaux"; out.ingrédient1="poireaux"; out.ingrédient2="farine"; out.ingrédient3="beurre"; out.autresingr="poivre"; out.temps="55 minutes"; out.étape1="Éplucher les poireaux."; out.étape2="Préparer la pâte brisée.";</tag>
+</item>
+</one-of>
+</rule>
+</grammar>
