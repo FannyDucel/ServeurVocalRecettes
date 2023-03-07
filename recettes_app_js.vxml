@@ -111,6 +111,9 @@
         <!--<reprompt/>-->
         <prompt> Je répète : <value expr="getInstructionsByRecipe(recette_choisie)[nb - 1]"/> </prompt>
         <goto next="#commencer_recette"/>
+      <else/>
+        <prompt> Essayez plutôt un mot-clé comme "oui", "attends", ou "répétez". </prompt>
+        <goto next="#etapeok"/>
       </if>
     </filled>
   </field>
