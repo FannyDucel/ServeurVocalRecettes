@@ -91,7 +91,7 @@
   </block>
 </form>
 
-<form name="etapeok">
+<form id="etapeok">
 <field name="ok">
     <prompt> C'est bon ? </prompt>
     <grammar src="ouinon.vxml"/>
@@ -99,15 +99,20 @@
     <nomatch> <prompt>Désolé, je n'ai pas compris.</prompt> <reprompt/> </nomatch>
     <filled>
       <if cond="ok == 'oui'">
-        <prompt> Très bien. Ensuite, <goto next="commencer_recette"/>. </prompt>
-      <elseif cond="ok == 'attends' || ok == 'pause'"/>
-        <prompt> D'accord, j'attends 5 secondes. 
-        <break time="5000ms"/> </prompt>
-        <goto next="commencer_recette"/>
+        <prompt> Très bien. </prompt>
+          <if cond="nb == liste_instructions.length">
+            <prompt> C'est fini, bon appétit ! </prompt> <goto next="#fin"/> 
+          <else/>
+            <prompt> Ensuite, </prompt> <goto next="#commencer_recette"/> 
+          </if>
+      <elseif cond="ok == 'attends'"/> <!--" || ok == 'pause'"/>-->
+        <prompt> D'accord, j'attends 5 secondes. </prompt>
+        <break time="5000ms"/> 
+        <goto next="#commencer_recette"/>
         <!--<goto next="#etape_suivante"/>-->
       <elseif cond="ok == 'répétez'"/>
         <!--<reprompt/>-->
-        <prompt> Je répète : <value expr="getInstructionsByRecipe(recette_choisie)[nb]"/>. </prompt>
+        <prompt> Je répète : <value expr="getInstructionsByRecipe(recette_choisie)[nb - 1]"/> </prompt>
         <goto next="#commencer_recette"/>
       </if>
     </filled>
