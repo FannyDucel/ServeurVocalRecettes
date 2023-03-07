@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vxml version = "2.1" xml:lang="fr-fr" >  
 <script src="recettes.js"/>
-<var name="recette_choisie_e1"/>
-<var name="recette_choisie_e2"/>
 <var name="ingredient_choisi"/>
 <var name="recette_choisie"/>
+<var name="liste_instructions"/>
   <var name="nb" expr="0"/>
 <form id="start">
 <block>
@@ -30,8 +29,6 @@
     <filled>
       <!--<assign name="n" expr="getRandomInt(0,getRecipesByIngredient($ingredient_choisi).length)"/>
       <assign name="recette_choisie" expr="getRecipesByIngredient('pâtes')[0]"/>-->
-      <assign name="recette_choisie_e1" expr="lastresult$.interpretation.étape1"/>
-      <assign name="recette_choisie_e2" expr="lastresult$.interpretation.étape2"/>
       <assign name="ingredient_choisi" expr="lastresult$.interpretation.self"/>
       <prompt> J'ai entendu <value expr="ingredient_choisi"/> </prompt>
 
@@ -79,7 +76,7 @@
 
  <form id="commencer_recette">
   <block>
-    <var name="liste_instructions" expr="getInstructionsByRecipe(recette_choisie)"/>
+    <assign name="liste_instructions" expr="getInstructionsByRecipe(recette_choisie)"/>
     <prompt> <value expr="liste_instructions[nb]"/> </prompt>
     <assign name="nb" expr="nb + 1"/>
     <goto next="#etapeok"/>
@@ -106,8 +103,8 @@
             <prompt> Ensuite, </prompt> <goto next="#commencer_recette"/> 
           </if>
       <elseif cond="ok == 'attends'"/> <!--" || ok == 'pause'"/>-->
-        <prompt> D'accord, j'attends 5 secondes. </prompt>
-        <break time="5000ms"/> 
+        <prompt> D'accord, j'attends 5 secondes.
+        <break time="5000ms"/>  </prompt>
         <goto next="#commencer_recette"/>
         <!--<goto next="#etape_suivante"/>-->
       <elseif cond="ok == 'répétez'"/>
