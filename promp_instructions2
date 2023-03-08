@@ -144,3 +144,46 @@ Entrée :
             'pizza au fromage': ['pâte à pizza', 'sauce tomate', 'fromage râpé', 'mozzarella', 'huile d\'olive', 'sel', 'poivre'],
             'fondue de fromage': ['fromage à fondue', 'pain', 'ail', 'vin blanc', 'kirsch'],
             'macaroni au fromage': ['macaroni', 'beurre', 'farine', 'lait', 'fromage râpé', 'moutarde', 'sel', 'poivre']
+
+
+**************
+Entrée : {
+  "lentilles": ["dahl aux lentilles", "salade de lentilles", "biryani aux lentilles"],
+  "pois chiches": ["houmous", "falafels", "curry de pois chiches"],
+  "aubergines": ["moussaka végétarienne", "caviar d'aubergines", "ratatouille"]}
+
+Sortie : {
+  "lentilles": ["un dahl aux lentilles", "une salade de lentilles", "un biryani aux lentilles"],
+  "pois chiches": ["du houmous", "des falafels", "un curry de pois chiches"],
+  "aubergines": ["une moussaka végétarienne", "du caviar d'aubergines", "une ratatouille"]}
+
+
+Entrée : 
+  {"champignons": ["risotto aux champignons", "tartines aux champignons", "quiche aux champignons"],
+  "courgettes": ["spaghetti de courgettes", "flans de courgettes", "ratatouille"],
+  "brocoli": ["salade de brocoli", "tartes aux brocolis", "pâtes aux brocolis"],
+  "poireaux": ["tarte aux poireaux", "fondue de poireaux", "gratin de poireaux"],
+  "chou-fleur": ["couscous de chou-fleur", "curry de chou-fleur", "purée de chou-fleur"],
+  "patates douces": ["frites de patates douces", "curry de patates douces", "soupe de patates douces"],
+  "tofu": ["sauté de tofu et légumes", "nouilles sautées au tofu", "curry de tofu"],
+  "quinoa": ["salade de quinoa", "curry de quinoa", "bowl de quinoa"],
+  "épinards": ["curry d'épinards", "tarte aux épinards", "lasagne aux épinards"],
+  "poivrons": ["fajitas aux poivrons", "tarte aux poivrons", "poivrons farcis"],
+  "céleri-rave": ["céleri-rave rôti", "velouté de céleri-rave", "salade de céleri-rave"],
+  "carottes": ["carottes rôties au cumin", "curry de carottes", "tarte aux carottes"],
+  "haricots verts": ["haricots verts sautés à l'ail", "salade de haricots verts", "gratin de haricots verts"],
+  "oignons": ["soupe à l'oignon", "tarte aux oignons", "poêlée d'oignons"],
+  "avocat": ["guacamole", "salade d'avocat et de mangue", "tacos à l'avocat"],
+  "noix de cajou": ["tofu sauté aux noix de cajou", "curry de légumes aux noix de cajou", "salade de chou aux noix de cajou"],
+  "bananes": ["crème glacée à la banane", "bananes cuites au four avec du chocolat", "pain à la banane"],
+  "pommes": ["tarte aux pommes", "compote de pommes", "pommes caramélisées au four"],
+  "citrons": ["tarte au citron", "sorbet au citron", "gâteau au citron"],
+  "chocolat": ["brownies au chocolat", "mousse au chocolat", "gâteau au chocolat"],
+  "framboises": ["tarte aux framboises", "sorbet aux framboises", "clafoutis aux framboises"],
+  "tomates": ["sauce tomate maison", "tarte à la tomate", "salade de tomates et mozzarella"],
+  "pommes de terre": ["purée de pommes de terre", "frites de patates douces", "curry de pommes de terre et épinards"],
+  "riz": ["riz sauté aux légumes", "riz au lait végétal", "bol de riz aux haricots noirs"],
+  "pâtes": ["spaghetti à l'ail et à l'huile d'olive", "lasagne aux légumes", "salade de pâtes et légumes grillés"],
+  "oeufs": ["omelette aux champignons", "quiche aux épinards", "huevos rancheros"],
+  "fromage": ["pizza au fromage", "fondue de fromage", "macaroni au fromage"]
+  }

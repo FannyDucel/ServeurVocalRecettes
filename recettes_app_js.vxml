@@ -81,7 +81,7 @@
       <!--<var name="recette_choisie" expr="getRecipesByIngredient(ingredient_choisi)[getRandomInt(0,2)]"/>-->
 
      <prompt>
-        D'accord ! Je vous propose de cuisiner une <value expr="recette_choisie"/>. Vous aurez besoin de </prompt> 
+        D'accord ! Je vous propose de cuisiner <value expr="recette_choisie"/>. Vous aurez besoin de </prompt> 
         <var name="liste_ingredients" expr="getIngredientsByRecipe(recette_choisie)"/>
         <var name="temps_recette" expr="getTimeByRecipe(recette_choisie)"/>
       <foreach item="ingr" array="liste_ingredients"> 
