@@ -1,0 +1,29 @@
+[OK] Crée un dictionnaire python qui prend pour clé chaque recette de la liste ['dahl aux lentilles', 'salade de lentilles', 'biryani aux lentilles', 'houmous', 'falafels', 'curry de pois chiches', 'moussaka végétarienne', "caviar d'aubergines", 'ratatouille', 'risotto aux champignons'] et qui, pour chacune, attribue comme valeur une liste avec ses étapes de préparation. Par exemple :
+{"pizza au fromage" : "Préparer la pâte à pizza.", "Mettre la sauce tomate sur la pâte.", "Ajouter le fromage.", "Enfourner pour 25 minutes à 180 degrés."}
+
+Crée un dictionnaire python qui prend pour clé chaque recette de la liste ['ratatouille', 'risotto aux champignons','tartines aux champignons', 'quiche aux champignons', 'spaghetti de courgettes', 'flans de courgettes', 'ratatouille', 'salade de brocoli', 'tartes aux brocolis', 'pâtes aux brocolis', 'tarte aux poireaux', 'fondue de poireaux'] et qui, pour chacune, attribue comme valeur une liste avec ses étapes de préparation. Par exemple :
+{"pizza au fromage" : "Préparer la pâte à pizza.", "Mettre la sauce tomate sur la pâte.", "Ajouter le fromage.", "Enfourner pour 25 minutes à 180 degrés."}
+
+Crée un dictionnaire python qui prend pour clé chaque recette de la liste ['gratin de poireaux', 'couscous de chou-fleur', 'curry de chou-fleur', 'purée de chou-fleur', 'frites de patates douces', 'curry de patates douces', 'soupe de patates douces', 'sauté de tofu et légumes', 'nouilles sautées au tofu', 'curry de tofu'] et qui, pour chacune, attribue comme valeur une liste avec ses étapes de préparation. Par exemple :
+{"pizza au fromage" : "Préparer la pâte à pizza.", "Mettre la sauce tomate sur la pâte.", "Ajouter le fromage.", "Enfourner pour 25 minutes à 180 degrés."}
+
+
+Crée un dictionnaire python qui prend pour clé chaque recette de la liste ['salade de quinoa', 'curry de quinoa', 'bowl de quinoa', "curry d'épinards", 'tarte aux épinards', 'lasagne aux épinards', 'fajitas aux poivrons', 'tarte aux poivrons', 'poivrons farcis', 'céleri-rave rôti', 'velouté de céleri-rave', 'salade de céleri-rave'] et qui, pour chacune, attribue comme valeur une liste avec ses étapes de préparation. Par exemple :
+{"pizza au fromage" : "Préparer la pâte à pizza.", "Mettre la sauce tomate sur la pâte.", "Ajouter le fromage.", "Enfourner pour 25 minutes à 180 degrés."}
+
+
+Crée un dictionnaire python qui prend pour clé chaque recette de la liste ['carottes rôties au cumin', 'curry de carottes', 'tarte aux carottes', "haricots verts sautés à l'ail", 'salade de haricots verts', 'gratin de haricots verts', "soupe à l'oignon", 'tarte aux oignons', "poêlée d'oignons", 'guacamole', "salade d'avocat et de mangue", "tacos à l'avocat"] et qui, pour chacune, attribue comme valeur une liste avec ses étapes de préparation. Par exemple :
+{"pizza au fromage" : "Préparer la pâte à pizza.", "Mettre la sauce tomate sur la pâte.", "Ajouter le fromage.", "Enfourner pour 25 minutes à 180 degrés."}
+
+
+Crée un dictionnaire python qui prend pour clé chaque recette de la liste ['tofu sauté aux noix de cajou', 'curry de légumes aux noix de cajou', 'salade de chou aux noix de cajou', 'crème glacée à la banane', 'bananes cuites au four avec du chocolat', 'pain à la banane', 'tarte aux pommes', 'compote de pommes', 'pommes caramélisées au four', 'tarte au citron', 'sorbet au citron', 'gâteau au citron'] et qui, pour chacune, attribue comme valeur une liste avec ses étapes de préparation. Par exemple :
+{"pizza au fromage" : "Préparer la pâte à pizza.", "Mettre la sauce tomate sur la pâte.", "Ajouter le fromage.", "Enfourner pour 25 minutes à 180 degrés."}
+
+
+Crée un dictionnaire python qui prend pour clé chaque recette de la liste ['brownies au chocolat', 'mousse au chocolat', 'gâteau au chocolat', 'tarte aux framboises', 'sorbet aux framboises', 'clafoutis aux framboises', 'sauce tomate maison', 'tarte à la tomate', 'salade de tomates et mozzarella', 'purée de pommes de terre', 'frites de patates douces', 'curry de pommes de terre et épinards'] et qui, pour chacune, attribue comme valeur une liste avec ses étapes de préparation. Par exemple :
+{"pizza au fromage" : "Préparer la pâte à pizza.", "Mettre la sauce tomate sur la pâte.", "Ajouter le fromage.", "Enfourner pour 25 minutes à 180 degrés."}
+
+
+Crée un dictionnaire python qui prend pour clé chaque recette de la liste ['riz sauté aux légumes', 'riz au lait végétal', 'bol de riz aux haricots noirs', "spaghetti à l'ail et à l'huile d'olive", 'lasagne aux légumes', 'salade de pâtes et légumes grillés', 'omelette aux champignons', 'quiche aux épinards', 'huevos rancheros', 'pizza au fromage', 'fondue de fromage', 'macaroni au fromage'] et qui, pour chacune, attribue comme valeur une liste avec ses étapes de préparation. Par exemple :
+{"pizza au fromage" : "Préparer la pâte à pizza.", "Mettre la sauce tomate sur la pâte.", "Ajouter le fromage.", "Enfourner pour 25 minutes à 180 degrés."}
+

@@ -1,18 +1,37 @@
 <grammar xml:lang="fr-fr" root="recettes">
 <rule id="recettes" scope="public">
 <one-of>
-<item>
-pâtes
-<tag> out.self="pâtes"; out.titre = "Lasagne";out.ingrédient1="sauce tomate";out.étape1="Cuire les pâtes.";out.étape2="Mettre la sauce.";out.temps="3 minutes"; </tag>
-</item>
-<item>
-spaghetti carbonara
-<tag> out.titre="Spaghetti carbo"; out.ingrédient1="poireaux"; out.ingrédient2="farine"; out.ingrédient3="beurre"; out.autresingr="poivre"; out.temps="55 minutes"; out.étape1="Éplucher les poireaux."; out.étape2="Préparer la pâte brisée.";</tag>
-</item>
-<item>
-pâtes primavera
-<tag> out.titre="Pâtes prima"; out.ingrédient1="poireaux"; out.ingrédient2="farine"; out.ingrédient3="beurre"; out.autresingr="poivre"; out.temps="55 minutes"; out.étape1="Éplucher les poireaux."; out.étape2="Préparer la pâte brisée.";</tag>
-</item>
+<item> lentilles <tag> out.self="lentilles" </tag> </item>
+<item> pois chiches <tag> out.self="pois chiches" </tag> </item>
+<item> aubergines <tag> out.self="aubergines" </tag> </item>
+<item> champignons <tag> out.self="champignons" </tag> </item>
+<item> courgettes <tag> out.self="courgettes" </tag> </item>
+<item> brocoli <tag> out.self="brocoli" </tag> </item>
+<item> poireaux <tag> out.self="poireaux" </tag> </item>
+<item> chou-fleur <tag> out.self="chou-fleur" </tag> </item>
+<item> patates douces <tag> out.self="patates douces" </tag> </item>
+<item> tofu <tag> out.self="tofu" </tag> </item>
+<item> quinoa <tag> out.self="quinoa" </tag> </item>
+<item> épinards <tag> out.self="épinards" </tag> </item>
+<item> poivrons <tag> out.self="poivrons" </tag> </item>
+<item> céleri-rave <tag> out.self="céleri-rave" </tag> </item>
+<item> carottes <tag> out.self="carottes" </tag> </item>
+<item> haricots verts <tag> out.self="haricots verts" </tag> </item>
+<item> oignons <tag> out.self="oignons" </tag> </item>
+<item> avocat <tag> out.self="avocat" </tag> </item>
+<item> noix de cajou <tag> out.self="noix de cajou" </tag> </item>
+<item> bananes <tag> out.self="bananes" </tag> </item>
+<item> pommes <tag> out.self="pommes" </tag> </item>
+<item> citrons <tag> out.self="citrons" </tag> </item>
+<item> chocolat <tag> out.self="chocolat" </tag> </item>
+<item> framboises <tag> out.self="framboises" </tag> </item>
+<item> tomates <tag> out.self="tomates" </tag> </item>
+<item> pommes de terre <tag> out.self="pommes de terre" </tag> </item>
+<item> riz <tag> out.self="riz" </tag> </item>
+<item> pâtes <tag> out.self="pâtes" </tag> </item>
+<item> oeufs <tag> out.self="oeufs" </tag> </item>
+<item> fromage <tag> out.self="fromage" </tag> </item>
+
 </one-of>
 </rule>
 </grammar>
