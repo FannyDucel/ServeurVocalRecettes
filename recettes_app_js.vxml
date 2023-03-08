@@ -77,7 +77,7 @@
  <form id="commencer_recette">
   <block>
     <assign name="liste_instructions" expr="getInstructionsByRecipe(recette_choisie)"/>
-    <prompt> <value expr="liste_instructions[nb]"/> </prompt>
+    <prompt> numéro <value expr="nb"/>, longueur <value expr="liste_instructions.length"/> <value expr="liste_instructions[nb]"/> </prompt>
     <assign name="nb" expr="nb + 1"/>
     <goto next="#etapeok"/>
     <!--
@@ -97,7 +97,7 @@
     <filled>
       <if cond="ok == 'oui'">
         <prompt> Très bien. </prompt>
-          <if cond="nb == liste_instructions.length">
+          <if cond="nb > liste_instructions.length">
             <prompt> C'est fini, bon appétit ! </prompt> <goto next="#fin"/> 
           <else/>
             <prompt> Ensuite, </prompt> <goto next="#commencer_recette"/> 
@@ -109,7 +109,7 @@
         <!--<goto next="#etape_suivante"/>-->
       <elseif cond="ok == 'répétez'"/>
         <!--<reprompt/>-->
-        <prompt> Je répète : <value expr="getInstructionsByRecipe(recette_choisie)[nb - 1]"/> </prompt>
+        <prompt> Je répète <value expr="getInstructionsByRecipe(recette_choisie)[nb - 1]"/> </prompt>
         <goto next="#commencer_recette"/>
       <else/>
         <prompt> Essayez plutôt un mot-clé comme "oui", "attends", ou "répétez". </prompt>
