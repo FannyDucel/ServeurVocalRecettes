@@ -60,7 +60,7 @@
     
      <prompt>
 
-     Quel ingrédient voulez-vous utiliser dans votre recette ? 
+     Quel ingrédient voulez-vous utiliser dans votre recette ? Pensez à regarder dans vos placards et frigo et privilégier un aliment qui périme bientôt !
     </prompt>
     
     <grammar src="recettes_grammaire_js.vxml"/>
