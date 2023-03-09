@@ -159,7 +159,10 @@ Sortie : {
 
 
 Entrée : 
-  {"champignons": ["risotto aux champignons", "tartines aux champignons", "quiche aux champignons"],
+  {"lentilles": ["dahl aux lentilles", "salade de lentilles", "biryani aux lentilles"],
+  "pois chiches": ["houmous", "falafels", "curry de pois chiches"],
+  "aubergines": ["moussaka végétarienne", "caviar d'aubergines", "ratatouille"],
+  "champignons": ["risotto aux champignons", "tartines aux champignons", "quiche aux champignons"],
   "courgettes": ["spaghetti de courgettes", "flans de courgettes", "ratatouille"],
   "brocoli": ["salade de brocoli", "tartes aux brocolis", "pâtes aux brocolis"],
   "poireaux": ["tarte aux poireaux", "fondue de poireaux", "gratin de poireaux"],

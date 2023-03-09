@@ -1,0 +1,36 @@
+<grammar xml:lang="en-US" root="recettes">
+<rule id="recettes" scope="public">
+<one-of>
+<item> lentils <tag> out.self="lentils" </tag> </item>
+<item> chickpeas <tag> out.self="chickpeas" </tag> </item>
+<item> eggplants <tag> out.self="eggplants" </tag> </item>
+<item> mushrooms <tag> out.self="mushrooms" </tag> </item>
+<item> zucchini <tag> out.self="zucchini" </tag> </item>
+<item> broccoli <tag> out.self="broccoli" </tag> </item>
+<item> leeks <tag> out.self="leeks" </tag> </item>
+<item> cauliflower <tag> out.self="cauliflower" </tag> </item>
+<item> sweet potatoes <tag> out.self="sweet potatoes" </tag> </item>
+<item> tofu <tag> out.self="tofu" </tag> </item>
+<item> quinoa <tag> out.self="quinoa" </tag> </item>
+<item> spinach <tag> out.self="spinach" </tag> </item>
+<item> bell peppers <tag> out.self="bell peppers" </tag> </item>
+<item> celeriac <tag> out.self="celeriac" </tag> </item>
+<item> carrots <tag> out.self="carrots" </tag> </item>
+<item> green beans <tag> out.self="green beans" </tag> </item>
+<item> onions <tag> out.self="onions" </tag> </item>
+<item> avocado <tag> out.self="avocado" </tag> </item>
+<item> cashews <tag> out.self="cashews" </tag> </item>
+<item> bananas <tag> out.self="bananas" </tag> </item>
+<item> apples <tag> out.self="apples" </tag> </item>
+<item> lemons <tag> out.self="lemons" </tag> </item>
+<item> chocolate <tag> out.self="chocolate" </tag> </item>
+<item> raspberries <tag> out.self="raspberries" </tag> </item>
+<item> tomatoes <tag> out.self="tomatoes" </tag> </item>
+<item> potatoes <tag> out.self="potatoes" </tag> </item>
+<item> rice <tag> out.self="rice" </tag> </item>
+<item> pasta <tag> out.self="pasta" </tag> </item>
+<item> eggs <tag> out.self="eggs" </tag> </item>
+<item> cheese <tag> out.self="cheese" </tag> </item>
+</one-of>
+</rule>
+</grammar>

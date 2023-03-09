@@ -1,4 +1,3 @@
-<!-- https://github.com/voximal/voicexml-examples/blob/e800aa9fc45661e288ccb671ce2dfd5e574d701c/telisma/grammars/ouinon.gram -->
 <grammar xml:lang="fr-fr" root="ouinon">
 <rule id="ouinon" scope="public">
 <one-of>

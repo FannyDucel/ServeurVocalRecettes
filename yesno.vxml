@@ -1,0 +1,11 @@
+<grammar xml:lang="en-US" root="yesno">
+<rule id="yesno" scope="public">
+<one-of>
+<item>yes</item>
+<item>no</item>
+<item>repeat</item>
+<item>stop</item>
+<item>wait</item>
+</one-of>
+</rule>
+</grammar>

@@ -31,7 +31,6 @@
 <item> pâtes <tag> out.self="pâtes" </tag> </item>
 <item> oeufs <tag> out.self="oeufs" </tag> </item>
 <item> fromage <tag> out.self="fromage" </tag> </item>
-
 </one-of>
 </rule>
 </grammar>
