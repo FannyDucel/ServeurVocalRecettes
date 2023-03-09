@@ -22,11 +22,11 @@
          </voice>
       </prompt>
       <choice accept="approximate" next="#recherche_recettes">
-         <grammar src="choix_recette_grammaire.vxml"/>
+         <grammar src="choix_recette_grammaire_stoch.vxml"/>
     <!--Recette-->
       </choice>
       <choice accept="approximate" next="#vegetarisme">
-         <grammar src="choix_recette_grammaire.vxml"/>
+         <grammar src="choix_vegetarisme_grammaire_stoch.vxml"/>
     <!--Végétarisme-->
   </choice>
       <choice accept="approximate" next="#apropos">

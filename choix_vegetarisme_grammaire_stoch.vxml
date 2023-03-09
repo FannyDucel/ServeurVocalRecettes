@@ -1,0 +1,211 @@
+<grammar xml:lang="fr-fr" root="choix_vegetarisme">
+
+
+<rule id="choix_vegetarisme" scope="public">
+<tag> $ = ''</tag>
+<item> 
+<ruleref uri="#Phrase"/> <tag>$ += $$</tag> 
+</item>
+</rule> 
+
+<rule id= "Phrase"> 
+<one-of>
+<item Weight="0.07692307692307693"> <ruleref uri="#N_vg"/> <tag> $ += $$</tag> 
+<item> <ruleref uri="#sil"/> <tag> $ += $$</tag> </item> </item>
+<item Weight="0.3076923076923077"> <ruleref uri="#Vx"/> <tag> $ += $$</tag> 
+<item> <ruleref uri="#MoreAbout"/> <tag> $ += $$</tag> </item> </item>
+<item Weight="0.15384615384615385"> <ruleref uri="#DI"/> <tag> $ += $$</tag> 
+<item> <ruleref uri="#Gn_v"/> <tag> $ += $$</tag> </item> </item>
+<item Weight="0.15384615384615385"> <ruleref uri="#Vx"/> <tag> $ += $$</tag> 
+<item> <ruleref uri="#Gv"/> <tag> $ += $$</tag> </item> </item>
+<item Weight="0.3076923076923077"> <ruleref uri="#More"/> <tag> $ += $$</tag> 
+<item> <ruleref uri="#Gn_v"/> <tag> $ += $$</tag> </item> </item>
+</one-of>
+</rule>
+
+
+<rule id= "Gn_v"> 
+<one-of>
+<item Weight="0.16666666666666666"> <ruleref uri="#PartArt"/> <tag> $ += $$</tag> 
+<item> <ruleref uri="#N_v"/> <tag> $ += $$</tag> </item> </item>
+<item Weight="0.8333333333333334"> <ruleref uri="#PrepArt"/> <tag> $ += $$</tag> 
+<item> <ruleref uri="#N_vg"/> <tag> $ += $$</tag> </item> </item>
+</one-of>
+</rule>
+
+
+<rule id= "PrepArt"> 
+<one-of>
+<item Weight="1.0"> <ruleref uri="#Prep"/> <tag> $ += $$</tag> 
+<item> <ruleref uri="#Art"/> <tag> $ += $$</tag> </item> </item>
+</one-of>
+</rule>
+
+
+<rule id= "MoreAbout"> 
+<one-of>
+<item Weight="1.0"> <ruleref uri="#More"/> <tag> $ += $$</tag> 
+<item> <ruleref uri="#Gn_v"/> <tag> $ += $$</tag> </item> </item>
+</one-of>
+</rule>
+
+<rule id= "More"> 
+<one-of>
+<item Weight="1.0"> <ruleref uri="#E_v_m"/> <tag> $ += $$</tag> 
+<item> <ruleref uri="#M"/> <tag> $ += $$</tag> </item> </item>
+</one-of>
+</rule>
+
+<rule id= "DI"> 
+<one-of>
+<item Weight="1.0"> <ruleref uri="#DM"/> <tag> $ += $$</tag> 
+<item> <ruleref uri="#I"/> <tag> $ += $$</tag> </item> </item>
+</one-of>
+</rule>
+
+<rule id= "Gv"> 
+<one-of>
+<item Weight="1.0"> <ruleref uri="#V"/> <tag> $ += $$</tag> 
+<item> <ruleref uri="#Gn_v"/> <tag> $ += $$</tag> </item> </item>
+</one-of>
+</rule>
+
+<rule id= "PartArt"> 
+<one-of>
+<item Weight="1.0"> <ruleref uri="#Part"/> <tag> $ += $$</tag> 
+<item> <ruleref uri="#Art"/> <tag> $ += $$</tag> </item> </item>
+</one-of>
+</rule>
+
+<rule id= "E_v_m"> 
+<one-of>
+<item Weight="1.0"> <ruleref uri="#E"/> <tag> $ += $$</tag> 
+<item> <ruleref uri="#V_m"/> <tag> $ += $$</tag> </item> </item>
+</one-of>
+</rule>
+
+<rule id= "Vx"> 
+<one-of>
+<item Weight="1.0"> <ruleref uri="#P"/> <tag> $ += $$</tag> 
+<item> <ruleref uri="#Vl"/> <tag> $ += $$</tag> </item> </item>
+</one-of>
+</rule>
+
+<rule id= "DM"> 
+<one-of>
+<item Weight="1.0"> <ruleref uri="#D"/> <tag> $ += $$</tag> 
+<item> <ruleref uri="#PM"/> <tag> $ += $$</tag> </item> </item>
+</one-of>
+</rule>
+
+<rule id= "I"> 
+<one-of>
+<item Weight="1.0"> <ruleref uri="#Art_p"/> <tag> $ += $$</tag> 
+<item> <ruleref uri="#Info"/> <tag> $ += $$</tag> </item> </item>
+</one-of>
+</rule>
+
+<rule id= "N_vg"> 
+<one-of> 
+<item Weight="1.0"> végétarisme <tag>$='végétarisme '</tag></item>
+</one-of> 
+</rule>
+
+<rule id= "N_v"> 
+<one-of> 
+<item Weight="1.0"> viande <tag>$='viande '</tag></item>
+</one-of> 
+</rule>
+
+<rule id= "E"> 
+<one-of> 
+<item Weight="1.0"> en <tag>$='en '</tag></item>
+</one-of> 
+</rule>
+
+<rule id= "V_m"> 
+<one-of> 
+<item Weight="0.5"> apprendre <tag>$='apprendre '</tag></item>
+<item Weight="0.5"> savoir <tag>$='savoir '</tag></item>
+</one-of> 
+</rule>
+
+<rule id= "M"> 
+<one-of> 
+<item Weight="0.4"> plus <tag>$='plus '</tag></item>
+<item Weight="0.4"> davantage <tag>$='davantage '</tag></item>
+</one-of> 
+</rule>
+
+<rule id= "Art"> 
+<one-of> 
+<item Weight="0.8333333333333334"> le <tag>$='le '</tag></item>
+<item Weight="0.16666666666666666"> la <tag>$='la '</tag></item>
+</one-of> 
+</rule>
+
+<rule id= "Prep"> 
+<one-of> 
+<item Weight="1.0"> sur <tag>$='sur '</tag></item>
+</one-of> 
+</rule>
+
+<rule id= "P"> 
+<one-of> 
+<item Weight="1.0"> je <tag>$='je '</tag></item>
+</one-of> 
+</rule>
+
+<rule id= "Vl"> 
+<one-of> 
+<item Weight="0.5"> veux <tag>$='veux '</tag></item>
+<item Weight="0.5"> voudrais <tag>$='voudrais '</tag></item>
+</one-of> 
+</rule>
+
+<rule id= "D"> 
+<one-of> 
+<item Weight="0.5"> donne <tag>$='donne '</tag></item>
+<item Weight="0.5"> donnez <tag>$='donnez '</tag></item>
+</one-of> 
+</rule>
+
+<rule id= "V"> 
+<one-of> 
+<item Weight="0.5"> manger <tag>$='manger '</tag></item>
+<item Weight="0.5"> cuisiner <tag>$='cuisiner '</tag></item>
+</one-of> 
+</rule>
+
+<rule id= "PM"> 
+<one-of> 
+<item Weight="1.0"> moi <tag>$='moi '</tag></item>
+</one-of> 
+</rule>
+
+<rule id= "Art_p"> 
+<one-of> 
+<item Weight="1.0"> des <tag>$='des '</tag></item>
+</one-of> 
+</rule>
+
+<rule id= "Info"> 
+<one-of> 
+<item Weight="1.0"> informations <tag>$='informations '</tag></item>
+</one-of> 
+</rule>
+
+<rule id= "Part"> 
+<one-of> 
+<item Weight="1.0"> de <tag>$='de '</tag></item>
+</one-of> 
+</rule>
+
+<rule id= "sil"> 
+<one-of> 
+<item Weight="1.0">  <tag>$=' '</tag></item>
+</one-of> 
+</rule>
+
+</grammar>
+

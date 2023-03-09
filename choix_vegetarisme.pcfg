@@ -14,23 +14,23 @@ Gv -> V Gn_vg 0.0
 PartArt -> Part Art 1.0
 E_v_m -> E V_m 1.0
 Vx -> P Vl 1.0
-DM -> D M 1.0
+DM -> D PM 1.0
 I -> Art_p Info 1.0
 N_vg -> végétarisme 1.0
 N_v -> viande 1.0
 E -> en 1.0
 V_m -> apprendre 0.5
 V_m -> savoir 0.5
-M -> plus 0.4
-M -> davantage 0.4
+M -> plus 0.5
+M -> davantage 0.5
 Prep -> sur 1.0
 Art -> le 0.8333333333333334
 P -> je 1.0
-Vl -> veux 1.0
-Vl -> voudrais 0.0
+Vl -> veux 0.5
+Vl -> voudrais 0.5
 D -> donne 0.5
 D -> donnez 0.5
-M -> moi 0.20000000000000004
+PM -> moi 1.0
 Art_p -> des 1.0
 Info -> informations 1.0
 V -> manger 0.5
