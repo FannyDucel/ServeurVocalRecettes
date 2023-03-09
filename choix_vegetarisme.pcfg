@@ -1,0 +1,40 @@
+S -> N_vg sil 0.07692307692307693
+S -> Vx MoreAbout 0.3076923076923077
+S -> DI Gn_v 0.15384615384615385
+S -> Vx Gv 0.15384615384615385
+S -> More Gn_v 0.3076923076923077
+Gn_v -> PartArt N_v 0.16666666666666666
+Gn_v -> PrepArt N_vg 0.8333333333333334
+PrepArt -> Prep Art 1.0
+MoreAbout -> More Gn_v 1.0
+More -> E_v_m M 1.0
+DI -> DM I 1.0
+Gv -> V Gn_v 1.0
+Gv -> V Gn_vg 0.0
+PartArt -> Part Art 1.0
+E_v_m -> E V_m 1.0
+Vx -> P Vl 1.0
+DM -> D M 1.0
+I -> Art_p Info 1.0
+N_vg -> végétarisme 1.0
+N_v -> viande 1.0
+E -> en 1.0
+V_m -> apprendre 0.5
+V_m -> savoir 0.5
+M -> plus 0.4
+M -> davantage 0.4
+Prep -> sur 1.0
+Art -> le 0.8333333333333334
+P -> je 1.0
+Vl -> veux 1.0
+Vl -> voudrais 0.0
+D -> donne 0.5
+D -> donnez 0.5
+M -> moi 0.20000000000000004
+Art_p -> des 1.0
+Info -> informations 1.0
+V -> manger 0.5
+V -> cuisiner 0.5
+Part -> de 1.0
+Art -> la 0.16666666666666666
+sil -> x 1.0

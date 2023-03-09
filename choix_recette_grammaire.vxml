@@ -3,6 +3,7 @@
 <one-of>
 <item>recette</item>
 <item>recette végétarienne</item>
+<item>je veux cuisiner</item>
 </one-of>
 </rule>
 </grammar>

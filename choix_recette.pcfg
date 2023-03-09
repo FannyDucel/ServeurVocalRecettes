@@ -1,0 +1,28 @@
+S -> N sil 0.047619047619047616
+S -> Inf sil 0.047619047619047616
+S -> N Adj 0.047619047619047616
+S -> GI GAdj 0.19047619047619047
+S -> GI Gn 0.19047619047619047
+S -> Inf GAdj 0.09523809523809523
+S -> Inf Gn 0.09523809523809523
+S -> Gv Inf 0.09523809523809523
+S -> GImp GAdj 0.09523809523809523
+S -> GImp Gn 0.09523809523809523
+GImp -> Imp Pton 1.0
+GI -> Gv Inf 1.0
+GAdj -> Gn Adj 1.0
+Gv -> P Vl 1.0
+Gn -> Art N 1.0
+Art -> une 1.0
+N -> recette 1.0
+Adj -> végétarienne 1.0
+P -> je 1.0
+Vl -> veux 0.5
+Vl -> voudrais 0.5
+Inf -> cuisiner 0.2
+Inf -> préparer 0.4
+Inf -> faire 0.4
+Imp -> donne 0.5
+Imp -> donnez 0.5
+Pton -> moi 1.0
+sil -> x 1.0

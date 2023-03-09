@@ -5,6 +5,7 @@
    <var name="recette_choisie"/>
    <var name="liste_instructions"/>
    <var name="nb" expr="0"/>
+   <!--<form id="start"><block>-->
    <menu id="choix_menu">
       <prompt>
          <voice gender="female" age="50">
@@ -22,12 +23,11 @@
          </voice>
       </prompt>
       <choice accept="approximate" next="#recherche_recettes">
-         <grammar src="choix_recette_grammaire.vxml"/>
-    <!--Recette-->
+         <!--<grammar src="choix_recette_grammaire.vxml"/>-->
+    Recette
       </choice>
       <choice accept="approximate" next="#vegetarisme">
-         <grammar src="choix_recette_grammaire.vxml"/>
-    <!--Végétarisme-->
+    Végétarisme
   </choice>
       <choice accept="approximate" next="#apropos">
     Projet
@@ -36,7 +36,7 @@
     Objectifs
   </choice>
   <choice accept="approximate" next="#version_anglaise">
-   Parler anglais
+   Anglais
    </choice>
       <noinput> Dites l'un des mots suivants 
          <enumerate/>
@@ -54,7 +54,7 @@
 
    <form id="vegetarisme">
       <block>
-         <prompt> Nous proposons des recettes végétariennes afin de vous encourager à diminuer votre consommation de produits issus des animaux, et pour vous prouver que ce n'est pas compliqué ! En effet, la diminution de la consommation de chair animale est bon pour l'environnement, pour la santé, et pour le bien-être des animaux. </prompt>
+         <prompt> Nous proposons des recettes végétariennes afin de vous encourager à diminuer votre consommation de produits issus des animaux, et pour vous prouver que ce n'est pas compliqué ! </prompt>
          <goto next="#choix_menu"/>
       </block>
    </form>
@@ -175,9 +175,10 @@
                   <prompt> Ensuite, </prompt>
                   <goto next="#commencer_recette"/>
                </if>
-
                <elseif cond="ok == 'attends'"/>
+               <!--" || ok == 'pause'"/>-->
                <prompt> D'accord, j'attends 5 secondes.
+        
                   <break time="5000ms"/>
                </prompt>
                <if cond="nb + 1 > liste_instructions.length">
@@ -187,41 +188,9 @@
                   <prompt> Ensuite, </prompt>
                   <goto next="#commencer_recette"/>
                </if>
-               <elseif cond="ok == 'attendez'"/>
-               <prompt> D'accord, j'attends 5 secondes.
-                  <break time="5000ms"/>
-               </prompt>
-               <if cond="nb + 1 > liste_instructions.length">
-                  <prompt> C'est fini, bon appétit ! </prompt>
-                  <goto next="#fin"/>
-                  <else/>
-                  <prompt> Ensuite, </prompt>
-                  <goto next="#commencer_recette"/>
-               </if>
-               <elseif cond="ok == 'pause'"/>
-               <prompt> D'accord, j'attends 5 secondes.
-                  <break time="5000ms"/>
-               </prompt>
-               <if cond="nb + 1 > liste_instructions.length">
-                  <prompt> C'est fini, bon appétit ! </prompt>
-                  <goto next="#fin"/>
-                  <else/>
-                  <prompt> Ensuite, </prompt>
-                  <goto next="#commencer_recette"/>
-               </if>
-               <elseif cond="ok == 'stop'"/>
-               <prompt> D'accord, j'attends 5 secondes.
-                  <break time="5000ms"/>
-               </prompt>
-               <if cond="nb + 1 > liste_instructions.length">
-                  <prompt> C'est fini, bon appétit ! </prompt>
-                  <goto next="#fin"/>
-                  <else/>
-                  <prompt> Ensuite, </prompt>
-                  <goto next="#commencer_recette"/>
-               </if>
-
+               <!--<goto next="#etape_suivante"/>-->
                <elseif cond="ok == 'répétez'"/>
+               <!--<reprompt/>-->
                <prompt>
                   <voice>
                      <prosody rate="slow"> Je répète 
@@ -238,24 +207,6 @@
                   </prompt>
                   <goto next="#commencer_recette"/>
                </if>
-               <elseif cond="ok == 'répète'"/>
-               <prompt>
-                  <voice>
-                     <prosody rate="slow"> Je répète 
-                        <value expr="liste_instructions[nb - 1]"/>
-                     </prosody>
-                  </voice>
-               </prompt>
-               <if cond="nb + 1 > liste_instructions.length">
-                  <prompt> C'est fini, bon appétit ! </prompt>
-                  <goto next="#fin"/>
-                  <else/>
-                  <prompt>
-                     <break time="1000ms"/> Ensuite, 
-                  </prompt>
-                  <goto next="#commencer_recette"/>
-               </if>
-
                <else/>
                <prompt> Essayez plutôt un mot-clé comme "oui", "attends", ou "répétez". </prompt>
                <goto next="#etapeok"/>

@@ -1,11 +1,5 @@
 <grammar xml:lang="fr-fr" root="recettes">
 <rule id="recettes" scope="public">
-<item repeat="0-1"> je veux manger des </item>
-<item repeat="0-1"> je veux manger du </item>
-<item repeat="0-1"> je veux cuisiner des </item>
-<item repeat="0-1"> je veux cuisiner du </item>
-<item repeat="0-1"> je veux utiliser des </item>
-<item repeat="0-1"> je veux utiliser du </item>
 <one-of>
 <item> lentilles <tag> out.self="lentilles" </tag> </item>
 <item> pois chiches <tag> out.self="pois chiches" </tag> </item>
