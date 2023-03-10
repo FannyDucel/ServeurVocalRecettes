@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vxml version = "2.1" xml:lang="fr-fr" >
-   <!-- Définir le script javascript et les variables globales -->
    <script src="recettes.js"/>
    <var name="ingredient_choisi"/>
    <var name="recette_choisie"/>
    <var name="liste_instructions"/>
    <var name="nb" expr="0"/>
-
-
-   <!-- Menu principal : recette, végétarisme, projet, objectifs -->
    <menu id="choix_menu">
       <prompt>
          <voice gender="female" age="50">
@@ -25,24 +21,23 @@
             <sentence> Ou souhaitez-vous parler <emphasis> anglais </emphasis> ? </sentence>
          </voice>
       </prompt>
-
-      <!-- Les deux premiers choix se font grâce à des grammaires stochastiques, on peut donc faire des phrases, pour les autres, il suffit d'utiliser un mot-clé -->
       <choice accept="approximate" next="#recherche_recettes">
          <grammar src="choix_recette_grammaire_stoch.vxml"/>
+    <!--Recette-->
       </choice>
       <choice accept="approximate" next="#vegetarisme">
          <grammar src="choix_vegetarisme_grammaire_stoch.vxml"/>
-      </choice>
+    <!--Végétarisme-->
+  </choice>
       <choice accept="approximate" next="#apropos">
-         Projet
-      </choice>
+    Projet
+  </choice>
       <choice accept="approximate" next="#objectifs">
-         Objectifs
-      </choice>
-      <choice accept="approximate" next="#version_anglaise">
-         Parler anglais
-      </choice>
-
+    Objectifs
+  </choice>
+  <choice accept="approximate" next="#version_anglaise">
+   Parler anglais
+   </choice>
       <noinput> Dites l'un des mots suivants : recette, végétarisme, 
          <enumerate/>
       </noinput>
@@ -51,15 +46,12 @@
       </nomatch>
    </menu>
 
-
-   <!-- Accéder à la version anglaise (dans un fichier externe, qui reprend celui-ci mais traduit) -->
    <form id="version_anglaise">
       <block>
       <goto next="version_anglaise.vxml"/>
     </block>
    </form>
 
-   <!-- Accéder aux prompts correspondants aux choix -->
    <form id="vegetarisme">
       <block>
          <prompt> Nous proposons des recettes végétariennes afin de vous encourager à diminuer votre consommation de produits issus des animaux, et pour vous prouver que ce n'est pas compliqué ! En effet, la diminution de la consommation de chair animale est bon pour l'environnement, pour la santé, et pour le bien-être des animaux. </prompt>
@@ -79,9 +71,6 @@
       </block>
    </form>
 
-
-   <!-- À partir, d'ici, tout ce qui suit découle du choix "recette" 
-      Étape 1 : l'utilisateur donne un ingrédient souhaité, et le système propose une recette contenant cet ingrédient. Les ingrédients et le temps de préparation sont présentés.-->
    <form id="recherche_recettes">
       <field name="ingredient_choisii">
          <prompt>
@@ -96,6 +85,7 @@
             <reprompt/>
          </nomatch>
          <filled>
+            <!--<assign name="n" expr="getRandomInt(0,getRecipesByIngredient($ingredient_choisi).length)"/><assign name="recette_choisie" expr="getRecipesByIngredient('pâtes')[0]"/>-->
             <assign name="ingredient_choisi" expr="lastresult$.interpretation.self"/>
             <prompt> J'ai entendu 
                <value expr="ingredient_choisi"/>
@@ -105,6 +95,7 @@
       <block>
          <!--ATTENTION, tous les ingrédients doivent avoir 3 recettes associées -->
          <assign name="recette_choisie" expr="getRecipesByIngredient(ingredient_choisi)[getRandomInt(0,2)]"/>
+         <!--<var name="recette_choisie" expr="getRecipesByIngredient(ingredient_choisi)[getRandomInt(0,2)]"/>-->
          <prompt>
         D'accord ! Je vous propose de cuisiner une recette de
             <emphasis>
@@ -118,14 +109,15 @@
                <value expr="ingr"/>
             </prompt>
          </foreach>
+
        Cela prendra 
          <value expr="temps_recette"/>. 
+    
          <goto next="#valider_recette"/>
+         <!--<goto next="#commencer_recette"/>-->
       </block>
    </form>
-
-
-   <!-- Attente de la confirmation ("oui") de l'utilisateur. -->
+   
    <form id="valider_recette">
       <field name="confirmation">
          <prompt> Cela vous convient ? </prompt>
@@ -140,6 +132,7 @@
          <filled>
             <if cond="confirmation == 'oui'">
           C'est parti ! N'hésitez pas à me demander d'attendre ou de répéter chaque instruction.
+      
                <goto next="#commencer_recette"/>
                <else/>
                <goto next="#recherche_recettes"/>
@@ -147,22 +140,21 @@
          </filled>
       </field>
    </form>
-
-
-   <!-- Si la recette proposée précédemment a été confirmée, la recette débute : chaque instruction est énoncée. -->
    <form id="commencer_recette">
       <block>
          <assign name="liste_instructions" expr="getInstructionsByRecipe(recette_choisie)"/>
+         <!--<assign name="liste_instructions" expr="getInstructionsByRecipe(recette_choisie)"/>-->
+         <!--<if cond="nb > liste_instructions.length"><prompt> C'est fini, bon appétit ! </prompt><goto next="#fin"/><else/>-->
          <prompt>
             <value expr="liste_instructions[nb]"/>
          </prompt>
          <assign name="nb" expr="nb + 1"/>
          <goto next="#etapeok"/>
+         <!--
+  <foreach item="etape" array="liste_instructions.slice(nb)"> #slice pour reprendre la lecture à partir de là où on en était)
+    <assign name="nb" expr="nb + 1"/><prompt>, <value expr="etape"/><goto next="ok"/></prompt></foreach>-->
       </block>
    </form>
-
-
-   <!-- Après chaque énonciation d'instruction, l'utilisateur confirme qu'il a compris, ou il demande à répéter l'instruction, ou il demande d'attendre quelques secondes avant de continuer. Si l'instruction énoncée était la dernière, on redirige vers la fin du script et la sortie de l'appel. -->
    <form id="etapeok">
       <field name="ok">
          <prompt> C'est bon ? </prompt>
@@ -175,7 +167,6 @@
             <reprompt/>
          </nomatch>
          <filled>
-            <!-- Cas 1 : l'utilisateur comprend (il dit "oui"), on continue -->
             <if cond="ok == 'oui'">
                <prompt> Très bien. </prompt>
                <if cond="nb + 1 > liste_instructions.length">
@@ -186,8 +177,7 @@
                   <goto next="#commencer_recette"/>
                </if>
 
-            <!-- Cas 2 : l'utilisateur demande à attendre ("attends", "attendez", "pause", "stop"), le système attend 5 secondes avant de poursuivre. -->
-            <elseif cond="ok == 'attends'"/>
+               <elseif cond="ok == 'attends'"/>
                <prompt> D'accord, j'attends 5 secondes.
                   <break time="5000ms"/>
                </prompt>
@@ -198,7 +188,7 @@
                   <prompt> Ensuite, </prompt>
                   <goto next="#commencer_recette"/>
                </if>
-            <elseif cond="ok == 'attendez'"/>
+               <elseif cond="ok == 'attendez'"/>
                <prompt> D'accord, j'attends 5 secondes.
                   <break time="5000ms"/>
                </prompt>
@@ -209,7 +199,7 @@
                   <prompt> Ensuite, </prompt>
                   <goto next="#commencer_recette"/>
                </if>
-            <elseif cond="ok == 'pause'"/>
+               <elseif cond="ok == 'pause'"/>
                <prompt> D'accord, j'attends 5 secondes.
                   <break time="5000ms"/>
                </prompt>
@@ -220,7 +210,7 @@
                   <prompt> Ensuite, </prompt>
                   <goto next="#commencer_recette"/>
                </if>
-            <elseif cond="ok == 'stop'"/>
+               <elseif cond="ok == 'stop'"/>
                <prompt> D'accord, j'attends 5 secondes.
                   <break time="5000ms"/>
                </prompt>
@@ -232,8 +222,7 @@
                   <goto next="#commencer_recette"/>
                </if>
 
-            <!-- Cas 3 : l'utilisateur demande de répéter ("répète", "répétez"), le système répète l'instruction précédente plus lentement et continue. -->
-            <elseif cond="ok == 'répétez'"/>
+               <elseif cond="ok == 'répétez'"/>
                <prompt>
                   <voice>
                      <prosody rate="slow"> Je répète 
@@ -250,7 +239,7 @@
                   </prompt>
                   <goto next="#commencer_recette"/>
                </if>
-            <elseif cond="ok == 'répète'"/>
+               <elseif cond="ok == 'répète'"/>
                <prompt>
                   <voice>
                      <prosody rate="slow"> Je répète 
@@ -268,20 +257,16 @@
                   <goto next="#commencer_recette"/>
                </if>
 
-            <else/>
+               <else/>
                <prompt> Essayez plutôt un mot-clé comme "oui", "attends", ou "répétez". </prompt>
                <goto next="#etapeok"/>
             </if>
          </filled>
       </field>
    </form>
-
-
-   <!-- Fin de l'appel, le système raccroche. -->
    <form id="fin">
       <block>
     À bientôt !
-      </block>
+  </block>
    </form>
-
 </vxml>

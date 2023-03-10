@@ -48,7 +48,7 @@
 
    <form id="version_fr">
       <block>
-      <include src="recette_app_js.vxml"/>
+      <goto next="recette_app_js.vxml"/>
     </block>
    </form>
 
