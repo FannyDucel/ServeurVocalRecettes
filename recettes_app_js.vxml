@@ -7,14 +7,21 @@
    <var name="liste_instructions"/>
    <var name="nb" expr="0"/>
 
+   <form id="start">
+      <block>
+         <prompt>
+            <voice gender="female" age="50">
+               <sentence> Bonjour, bienvenue sur notre serveur vocal de recettes de cuisine végétariennes. </sentence>
+               <sentence> Vous avez faim mais pas d'inspiration ? Vous êtes au bon endroit. </sentence>
+            </voice>
+         </prompt>
+         <goto next="#choix_menu"/>
+      </block>
+   </form>
 
    <!-- Menu principal : recette, végétarisme, projet, objectifs -->
    <menu id="choix_menu">
       <prompt>
-         <voice gender="female" age="50">
-            <sentence> Bonjour, bienvenue sur notre serveur vocal de recettes de cuisine végétariennes. </sentence>
-            <sentence> Vous avez faim mais pas d'inspiration ? Vous êtes au bon endroit. </sentence>
-         </voice>
          <voice gender="male" age="15">
             <sentence> Souhaitez-vous faire une 
                <emphasis level="strong"> recette </emphasis>, en savoir plus sur le 
@@ -62,19 +69,19 @@
    <!-- Accéder aux prompts correspondants aux choix -->
    <form id="vegetarisme">
       <block>
-         <prompt> Nous proposons des recettes végétariennes afin de vous encourager à diminuer votre consommation de produits issus des animaux, et pour vous prouver que ce n'est pas compliqué ! En effet, la diminution de la consommation de chair animale est bon pour l'environnement, pour la santé, et pour le bien-être des animaux. </prompt>
+         <prompt> Nous proposons des recettes végétariennes afin de vous encourager à diminuer votre consommation de produits issus des animaux, et pour vous prouver que ce n'est pas compliqué ! En effet, la diminution de la consommation de chair animale est bon pour l'environnement, pour la santé, et pour le bien-être des animaux. <break time="500ms"/> Et maintenant, </prompt>
          <goto next="#choix_menu"/>
       </block>
    </form>
    <form id="apropos">
       <block>
-         <prompt> Ce serveur vocal a été réalisé dans le cadre du cours Serveurs vocaux interactifs du M2 Langue et Informatique de Sorbonne Université, en mars 2023, par Fanny Ducel. </prompt>
+         <prompt> Ce serveur vocal a été réalisé dans le cadre du cours Serveurs vocaux interactifs du M2 Langue et Informatique de Sorbonne Université, en mars 2023, par Fanny Ducel. <break time="500ms"/> Et maintenant, </prompt>
          <goto next="#choix_menu"/>
       </block>
    </form>
    <form id="objectifs">
       <block>
-         <prompt> L'objectif de ce serveur est de proposer des recettes végétariennes selon un ingrédient choisi par l'utilisateur, selon ses envies ou ce qu'il a à disposition, pour éviter le gaspillage par exemple. </prompt>
+         <prompt> L'objectif de ce serveur est de proposer des recettes végétariennes selon un ingrédient choisi par l'utilisateur, selon ses envies ou ce qu'il a à disposition, pour éviter le gaspillage par exemple. <break time="500ms"/> Et maintenant, </prompt>
          <goto next="#choix_menu"/>
       </block>
    </form>
@@ -191,46 +198,22 @@
                <prompt> D'accord, j'attends 5 secondes.
                   <break time="5000ms"/>
                </prompt>
-               <if cond="nb + 1 > liste_instructions.length">
-                  <prompt> C'est fini, bon appétit ! </prompt>
-                  <goto next="#fin"/>
-                  <else/>
-                  <prompt> Ensuite, </prompt>
-                  <goto next="#commencer_recette"/>
-               </if>
+               <goto next="#etapeok"/>
             <elseif cond="ok == 'attendez'"/>
                <prompt> D'accord, j'attends 5 secondes.
                   <break time="5000ms"/>
                </prompt>
-               <if cond="nb + 1 > liste_instructions.length">
-                  <prompt> C'est fini, bon appétit ! </prompt>
-                  <goto next="#fin"/>
-                  <else/>
-                  <prompt> Ensuite, </prompt>
-                  <goto next="#commencer_recette"/>
-               </if>
+               <goto next="#etapeok"/>
             <elseif cond="ok == 'pause'"/>
                <prompt> D'accord, j'attends 5 secondes.
                   <break time="5000ms"/>
                </prompt>
-               <if cond="nb + 1 > liste_instructions.length">
-                  <prompt> C'est fini, bon appétit ! </prompt>
-                  <goto next="#fin"/>
-                  <else/>
-                  <prompt> Ensuite, </prompt>
-                  <goto next="#commencer_recette"/>
-               </if>
+               <goto next="#etapeok"/>
             <elseif cond="ok == 'stop'"/>
                <prompt> D'accord, j'attends 5 secondes.
                   <break time="5000ms"/>
                </prompt>
-               <if cond="nb + 1 > liste_instructions.length">
-                  <prompt> C'est fini, bon appétit ! </prompt>
-                  <goto next="#fin"/>
-                  <else/>
-                  <prompt> Ensuite, </prompt>
-                  <goto next="#commencer_recette"/>
-               </if>
+            <goto next="#etapeok"/>
 
             <!-- Cas 3 : l'utilisateur demande de répéter ("répète", "répétez"), le système répète l'instruction précédente plus lentement et continue. -->
             <elseif cond="ok == 'répétez'"/>
@@ -241,15 +224,7 @@
                      </prosody>
                   </voice>
                </prompt>
-               <if cond="nb + 1 > liste_instructions.length">
-                  <prompt> C'est fini, bon appétit ! </prompt>
-                  <goto next="#fin"/>
-                  <else/>
-                  <prompt>
-                     <break time="1000ms"/> Ensuite, 
-                  </prompt>
-                  <goto next="#commencer_recette"/>
-               </if>
+               <goto next="#etapeok"/>
             <elseif cond="ok == 'répète'"/>
                <prompt>
                   <voice>
@@ -258,15 +233,7 @@
                      </prosody>
                   </voice>
                </prompt>
-               <if cond="nb + 1 > liste_instructions.length">
-                  <prompt> C'est fini, bon appétit ! </prompt>
-                  <goto next="#fin"/>
-                  <else/>
-                  <prompt>
-                     <break time="1000ms"/> Ensuite, 
-                  </prompt>
-                  <goto next="#commencer_recette"/>
-               </if>
+               <goto next="#etapeok"/>
 
             <else/>
                <prompt> Essayez plutôt un mot-clé comme "oui", "attends", ou "répétez". </prompt>
